@@ -1,0 +1,27 @@
+D'une manière générale, évitez de mélanger le français et l'anglais dans le code.
+Si vous considérer que votre code à pour vocation à n'être lu que par des francophones, écrire en français est acceptable mais n'utilisez alors que le français.
+Ici à la ligne 22 on se demande pourquoi il y a amout et montant, en quoi ces 2 variables sont différentes ?
+De même pour le choix de notation utilsé (si commencer à utiliser la notion postalCode, gardez la jusqu'au bout, ici on peut se demander pourquoi vous avez choisit max_credit et postalCode par exemple)
+
+Toujours d'une manière générale, on préfère éviter "using namespace std;" dans les fichiers headers car ils ont vocation à être importés.
+Vous "obligez" ainsi tous les fichiers qui importent vos fichiers headers à utiliser le namespace.
+Encore une fois la pratique est acceptable si vous considérez que le fichier à vocation à n'être importé que par votre code (et donc vous controlez vos namespaces)
+
+Le code est assez clair, ce qu'il fait est relativement facile à comprendre.
+Les noms des variables et des fonctions sont explicites, ce qui facilite la compréhension de la logique.
+Evitez au maximum les abbréviations (ici tel est acceptable mais un esprit tordu pourrait penser qu'il s'agit du nombre de télévisions dont dispose l'utlisateur par exemple. Enlevez tout doute possible : phone_number)
+Vous avez bien utilisé les classes et trouvé un cas d’héritage cohérent pour organiser votre code.
+
+Dans la fonction main, vous pouvez encapsuler toute la logique avec les input/output dans des fonctions getAddress, getCountry, getPassword etc ou une fonction générale getLocation. Cela sera plus clair sur ce qui se passe et vous permettra de réutiliser la logique si besoin / la faire évoluer plus facilement.
+
+Toujours dans la fonction main, vous utilisez a plusieurs la fonction new dans faire d'appel à delete.
+Il est généralement considéré comme une bonne pratique de toujours libérer la mémoire que vous avez allouée dès que vous avez fini de l’utiliser.
+C’est particulièrement important dans les programmes plus grands qui peuvent exécuter pendant une longue période ou utiliser de grandes quantités de mémoire.
+Dans notre cas, les variables déclarée avec new sont dans la fonction main et vu la manière dont le programme est fait il va de toute manière s'arréter tout de suite après l'utlisation de cette mémoire et le système d’exploitation récupérera toute la mémoire qui n’a pas été libérée, cela ne pose donc dans les faits aucun problème.
+D'une manière générale, évitez vous les problèmes et utilisez les smart pointers à qui on pourra déléguer ce role.
+
+Pour allez plus loin dans la gestion des ressources, vous pouvez passer des références (&) ou des pointeurs (*) en fonctions des besoins.
+Prennez le temps de bien comprendre à quels cas servent chaques types / méthodes afin que leurs usages vous semblent évidents et ne vous mène pas en erreur.
+
+
+14/20
